@@ -6,3 +6,7 @@
     color: red;
     font-size: 80px; 
 }
+
+.fade {
+    opacity: 0;
+}

@@ -1,0 +1,8 @@
+.main-title{
+    transition: all 0.5s;
+}
+
+.big-and-red{
+    color: red;
+    font-size: 80px; 
+}

@@ -7,6 +7,7 @@ const filterOption = document.querySelector('.filter-options');
 submit.addEventListener('click', addTodo)
 todosList.addEventListener('click', checkOrDelete);
 filterOption.addEventListener('click', filterTodo);
+document.addEventListener('DOMContentLoaded', loadFromLocalStorage)
 
 
 
@@ -22,6 +23,8 @@ function addTodo(e) {
     todoItem.classList.add('todo-item');
     todoItem.innerText = `${todoInput.value}`;
     todoDiv.appendChild(todoItem);
+
+    saveToLocalStorage(todoInput.value);
 
     const checkButton = document.createElement('button');
     checkButton.classList.add('check-button');
@@ -48,6 +51,7 @@ function checkOrDelete(e) {
 
     if(button.classList[0] === "delete-button") {
         todoItem.remove();
+        removeLocalTodos(todoItem);
     }
 }
 
@@ -76,4 +80,58 @@ function filterTodo(e) {
                 break;
         }
     })
+}
+
+function saveToLocalStorage(todo) {
+    let todos = checkLocal();
+
+    todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+
+
+function loadFromLocalStorage(){
+
+    let todos = checkLocal();
+    
+    todos.forEach(todo => {
+        //Create a div with a list element and two buttons
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo');
+
+        const todoItem = document.createElement('li');
+        todoItem.classList.add('todo-item');
+        todoItem.innerText = todo;
+        todoDiv.appendChild(todoItem);
+
+        const checkButton = document.createElement('button');
+        checkButton.classList.add('check-button');
+        checkButton.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i>';
+        todoDiv.appendChild(checkButton);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+        todoDiv.appendChild(deleteButton);
+
+        todosList.appendChild(todoDiv);
+    })
+}
+
+function removeLocalTodos(todo){
+    let todos = checkLocal();
+
+    const todoIndex = todo.children[0].innerText;
+    todos.splice(todos.indexOf(todoIndex), 1);
+    localStorage.setItem('todos', JSON.stringify(todos))
+}
+
+function checkLocal(){
+    let todos;
+    if(localStorage.getItem('todos') === null) {
+        return todos = [];
+    } else {
+        return todos = JSON.parse(localStorage.getItem('todos'));
+    }
 }

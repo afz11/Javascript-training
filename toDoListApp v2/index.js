@@ -50,8 +50,13 @@ function checkOrDelete(e) {
     }
 
     if(button.classList[0] === "delete-button") {
-        todoItem.remove();
+        todoItem.classList.add('fall');
         removeLocalTodos(todoItem);
+        todoItem.addEventListener('transitionend', e => {
+            todoItem.remove();
+        })
+        
+        
     }
 }
 
@@ -62,18 +67,18 @@ function filterTodo(e) {
     todos.forEach(todo => {
         switch(filterStatus){
             case "all":
-                todo.style.display= "block";
+                todo.style.display= "flex";
                 break;
             case "completed":
                 if (todo.classList.contains("completed")){
-                    todo.style.display= "block"
+                    todo.style.display= "flex"
                 } else {
                     todo.style.display= "none"
                 }
                 break;
             case "uncompleted":
                 if (!todo.classList.contains("completed")){
-                    todo.style.display= "block"
+                    todo.style.display= "flex"
                 } else {
                     todo.style.display= "none"
                 }
@@ -135,3 +140,4 @@ function checkLocal(){
         return todos = JSON.parse(localStorage.getItem('todos'));
     }
 }
+

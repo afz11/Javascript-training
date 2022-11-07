@@ -15,20 +15,22 @@
     <title>My todo app</title>
   </head>
   <body>
-    <h1 class="h1">Hello Worlds</h1>
-    <div class="select">
-      <select class="filter-options">
-        <option value="all">All</option>
-        <option value="completed">Completed</option>
-        <option value="uncompleted">Uncompleted</option>
-      </select>
-    </div>
+    <header>
+      <h1>My Todo list</h1>
+    </header>
 
     <form>
       <input type="text" class="todo-input" placeholder="Add todos here..." />
       <button type="submit" id="submit">
         <i class="fa fa-square-plus" aria-hidden="true"></i>
       </button>
+      <div class="select">
+        <select class="filter-options">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
     </form>
     <div class="todo-.container">
       <ul class="todos"></ul>

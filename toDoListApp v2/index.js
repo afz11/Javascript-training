@@ -1,9 +1,12 @@
 const todoInput = document.querySelector('.todo-input');
 const submit = document.querySelector('#submit');
 const todosList = document.querySelector('.todos');
+const filterOption = document.querySelector('.filter-options');
 
 //eventListeneres
 submit.addEventListener('click', addTodo)
+todosList.addEventListener('click', checkOrDelete);
+filterOption.addEventListener('click', filterTodo);
 
 
 
@@ -31,5 +34,46 @@ function addTodo(e) {
     todoDiv.appendChild(deleteButton);
 
     todosList.appendChild(todoDiv);
+
+    todoInput.value = '';
 }
 
+function checkOrDelete(e) {
+    const button = e.target;
+    const todoItem = button.parentElement;
+
+    if(button.classList.contains('check-button')){
+        todoItem.classList.toggle('completed')
+    }
+
+    if(button.classList[0] === "delete-button") {
+        todoItem.remove();
+    }
+}
+
+function filterTodo(e) {
+    const todos = todosList.childNodes;
+    const filterStatus = e.target.value; 
+
+    todos.forEach(todo => {
+        switch(filterStatus){
+            case "all":
+                todo.style.display= "block";
+                break;
+            case "completed":
+                if (todo.classList.contains("completed")){
+                    todo.style.display= "block"
+                } else {
+                    todo.style.display= "none"
+                }
+                break;
+            case "uncompleted":
+                if (!todo.classList.contains("completed")){
+                    todo.style.display= "block"
+                } else {
+                    todo.style.display= "none"
+                }
+                break;
+        }
+    })
+}

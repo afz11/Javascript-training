@@ -23,9 +23,9 @@
             <i class="fa fa-volume-mute"></i>
           </button>
           <select name="kick-select" id="kick-select">
-            <option value="./sounds/kick-classic.wav">Classic Kick</option>
-            <option value="./sounds/kick-808.wav">808 Kick</option>
-            <option value="./sounds/kick-heavy.wav">Heavy Kick</option>
+            <option value="./allSounds/kick-classic.wav">Classic Kick</option>
+            <option value="./allSounds/kick-808.wav">808 Kick</option>
+            <option value="./allSounds/kick-heavy.wav">Heavy Kick</option>
           </select>
         </div>
         <div class="kick">
@@ -47,9 +47,11 @@
             <i class="fa fa-volume-mute"></i>
           </button>
           <select name="snare-select" id="snare-select">
-            <option value="./sounds/snare-acoustic01.wav">Classic Snare</option>
-            <option value="./sounds/snare-808.wav">808 Snare</option>
-            <option value="./sounds/snarevinyl02.wav">Vinyl Snare</option>
+            <option value="./allSounds/snare-acoustic01.wav">
+              Acoustic Snare
+            </option>
+            <option value="./allSounds/snare-808.wav">808 Snare</option>
+            <option value="./allSounds/snare- vinyl02.wav">Vinyl Snare</option>
           </select>
         </div>
         <div class="snare">
@@ -71,10 +73,10 @@
             <i class="fa fa-volume-mute"></i>
           </button>
           <select name="hihat-select" id="hihat-select">
-            <option value="./sounds/hihat-acoustic01.wav">
+            <option value="./allSounds/hihat-acoustic01.wav">
               Hihat Acoustic
             </option>
-            <option value="./sounds/hihat-808.wav">808 Snare</option>
+            <option value="./allSounds/hihat-808.wav">808 Hihat</option>
           </select>
         </div>
         <div class="hihat">
@@ -89,11 +91,15 @@
         </div>
       </div>
       <button class="play">Play</button>
+      <div class="tempo">
+        <input type="range" class="tempo-slider" max="300" min="10" />
+        <p>Tempo: <span class="tempo-nr">90</span></p>
+      </div>
     </div>
 
-    <audio class="kick-sound" src="./allSounds/kick-808.wav"></audio>
-    <audio class="snare-sound" src="./allSounds/snare-808.wav"></audio>
-    <audio class="hihat-sound" src="./allSounds/hihat-808.wav"></audio>
+    <audio class="kick-sound" src="./allSounds/kick-classic.wav"></audio>
+    <audio class="snare-sound" src="./allSounds/snare-acoustic01.wav"></audio>
+    <audio class="hihat-sound" src="./allSounds/hihat-acoustic01.wav"></audio>
     <script src="app.js"></script>
   </body>
 </html>

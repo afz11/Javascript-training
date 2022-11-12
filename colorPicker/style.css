@@ -52,6 +52,8 @@ svg {
   opacity: 0;
   transform: translateY(100px);
   transition: all 0.5s ease-in-out;
+  pointer-events: none;
+  padding: 1rem;
 }
 
 .sliders.active {
@@ -60,13 +62,15 @@ svg {
   pointer-events: all;
 }
 
-.sliders button {
+.sliders button,
+.close-save,
+.close-library {
   position: absolute;
   top: 0;
   right: 0;
   padding: 0.5rem;
-  border-top-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   border: none;
   background-color: rgb(46, 43, 43);
   color: aliceblue;
@@ -83,7 +87,8 @@ svg {
   height: 20vh;
 }
 
-.panel button {
+.panel button,
+.submit-save {
   font-size: 1.2rem;
   margin: 1rem;
   padding: 1rem 2rem;
@@ -92,6 +97,12 @@ svg {
   border: none;
   cursor: pointer;
   border-radius: 1rem;
+}
+
+.submit-save {
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 0.8rem 1.5rem;
 }
 
 .library-panel,
@@ -109,4 +120,112 @@ svg {
   background: none;
   cursor: pointer;
   margin: 2rem 0rem;
+}
+
+/* Slider stuff */
+
+input[type='range'] {
+  -webkit-appearance: none;
+  margin: 1rem 0rem;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.copy-container,
+.save-container,
+.library-container {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.copy-container.active,
+.save-container.active,
+.library-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.copy-popup,
+.save-popup,
+.library-popup {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 2rem;
+  transition: transform 0.5s ease;
+  transform: translateY(-2rem);
+  min-width: 30%;
+  min-height: 30vh;
+}
+
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active {
+  transform: translateY(0rem);
+}
+
+.copy-popup h4,
+.save-popup h4,
+.library-popup h4 {
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.save-name {
+  padding: 1rem 2rem;
+}
+
+.library-popup {
+  min-width: 40%;
+  padding: 1rem;
+  justify-content: flex-start;
+  overflow: auto;
+  max-height: 50vh;
+  border-radius: 1rem;
+}
+
+.costum-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+}
+
+.small-preview {
+  display: flex;
+  flex: 1;
+}
+
+.costum-palette h4 {
+  flex: 1;
+}
+
+.small-preview div {
+  height: 4rem;
+  flex: 1;
+}
+
+.pick-palette-btn {
+  height: 4rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: white;
+  background-color: rgb(20, 18, 18);
 }

@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mulish', sans-serif;
+  color: #0007b0;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 3rem;
+  padding: 1rem 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  width: 60%;
+  margin: 0 auto;
+}
+.game-div {
+  background: white;
+  /* border: 1px solid #0007b0; */
+  min-height: 40vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.human-choice,
+.computer-choice {
+  display: flex;
+  flex: 1;
+  flex-basis: 40%;
+  margin: 2rem 5rem;
+  padding: 3rem 5rem;
+  width: 20rem;
+  /* background-color: blue; */
+}
+
+.rock,
+.paper,
+.scissors {
+  display: flex;
+  flex: 1;
+  flex-basis: 50rem;
+  padding: 2rem 2rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #0007b0;
+  margin: 0 0.1rem;
+}
+
+.fa-regular {
+  font-size: 4rem;
+  background-color: white;
+  padding: 1rem 1rem;
+}
+i,
+svg {
+  pointer-events: none;
+}
+
+.play {
+  background-color: #fff;
+  color: #0007b0;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: 1px solid #0007b0;
+  margin: 2rem 0rem;
+}

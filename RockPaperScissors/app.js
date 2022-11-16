@@ -1,70 +1,86 @@
+const commentary = document.querySelector('.commentary');
+
+let computerScore = 0;
+let playerScore = 0;
+let gameOver = false;
+
 function getComputerChoice() {
-    const randomChoice = Math.floor(Math.random()*12 + 1);
-    if(randomChoice >= 1 && randomChoice <= 4){
+    const randomChoice = Math.floor(Math.random()*3 + 1);
+    if(randomChoice === 1){
         return "Rock";
     }
-    if(randomChoice >= 5 && randomChoice <= 8){
+    if(randomChoice === 2){
         return "Paper";
     }
-    if(randomChoice >= 9 && randomChoice <= 12){
+    if(randomChoice === 3){
         return "Scissors";
     }
 }
 
+function getPlayerChoice() {
+    const choice = prompt("Rock, Paper, or Scissors?", '').toLowerCase();
+    return choice;
+}
+
 
 function playRound(playerSelection, computerSelection){
-    switch(playerSelection.toLowerCase()){
+    switch(playerSelection){
         case "rock":
             if(computerSelection === "Paper"){
-                return -1;
+                return computerScore++;
             }
-            else if(computerSelection === "Scissors"){
-                return 1;
-            } else {
+            if(computerSelection === "Scissors"){
+                 return playerScore++;
+            } 
+            if(computerSelection === "Rock") {
                 return 0;
             }
             break;
         case "paper":
             if(computerSelection === "Scissors"){
-                return -1;
+                return computerScore++;
             }
-            else if(computerSelection === "Rock"){
-                return 1;
-            } else {
+            if(computerSelection === "Rock"){
+                return playerScore++;
+            }
+             if(computerSelection === "Paper"){
                 return 0;
             }
             break;
         case "scissors":
             if(computerSelection === "Rock"){
-                return -1;
+                return computerScore++;
             }
-            else if(computerSelection === "Paper"){
-                return 1;
-            } else {
+            if(computerSelection === "Paper"){
+                return playerScore++;
+            } 
+            if(computerSelection === "Scissors"){
                 return 0;
             }
             break;
     }
 }
 
-const playerSelection = "rock";
+// let playerSelection = getPlayerChoice();
 let computerSelection; 
 
 function game() {
     let result = 0;
-    for(let i = 0; i < 5; i++){
-        // console.log(i)
+    for(let i = 1; i <= 5; i++){
+        
         computerSelection = getComputerChoice();
-        // console.log(computerSelection)
         
         roundResult = playRound(playerSelection, computerSelection);
-        result += roundResult;
-        
+        // result += roundResult;
+        // console.log(result);
+        console.log("computer score is: " + computerScore);
+        console.log("Player score is: " +playerScore);
     }
+
     console.log(result > 0 ? "You Win! Good Job" : result < 0 ? "Computer Wins! Try Again?": "Its a Draw!");
     return result > 0 ? "You Win! Good Job" : result < 0 ? "Computer Wins! Try Again?": "Its a Draw!";
     
    
 }
 
-game();
+// game();

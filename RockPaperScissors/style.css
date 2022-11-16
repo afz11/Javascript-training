@@ -8,6 +8,10 @@ body {
   font-family: 'Mulish', sans-serif;
   color: #0007b0;
 }
+
+h3 {
+  font-size: 2.5rem;
+}
 header {
   display: flex;
   justify-content: center;
@@ -15,7 +19,7 @@ header {
 }
 
 header h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   padding: 1rem 0;
 }
 
@@ -28,7 +32,7 @@ main {
 
 .main {
   width: 60%;
-  margin: 0 auto;
+  margin: 5rem auto;
 }
 .game-div {
   background: white;
@@ -41,13 +45,13 @@ main {
   justify-content: center;
 }
 
-.human-choice,
+.player-choice,
 .computer-choice {
   display: flex;
   flex: 1;
   flex-basis: 40%;
-  margin: 2rem 5rem;
-  padding: 3rem 5rem;
+  margin: 8rem 6rem;
+  padding: 5rem 5rem;
   width: 20rem;
   /* background-color: blue; */
 }
@@ -58,17 +62,33 @@ main {
   display: flex;
   flex: 1;
   flex-basis: 50rem;
-  padding: 2rem 2rem;
+  padding: 4rem 2rem;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   border: 1px solid #0007b0;
   margin: 0 0.1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.rock.active,
+.paper.active,
+.scissors.active {
+  border: 2px solid red;
+}
+
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+  color: #ffffff;
+  background-color: #0006b0e8;
+  /* border: 1px dashed rgb(255, 255, 255); */
+  transform: scale(1.03);
 }
 
 .fa-regular {
   font-size: 4rem;
-  background-color: white;
+  /* background-color: white; */
   padding: 1rem 1rem;
 }
 i,
@@ -79,8 +99,15 @@ svg {
 .play {
   background-color: #fff;
   color: #0007b0;
-  font-size: 1.5rem;
-  padding: 1rem 2rem;
-  border: 1px solid #0007b0;
+  font-size: 2rem;
+  padding: 2rem 4rem;
+  border: 1px dashed #0007b0;
   margin: 2rem 0rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.play:hover {
+  color: #ffffff;
+  background-color: #0006b0e8;
+  border: 1px dashed rgb(255, 255, 255);
 }

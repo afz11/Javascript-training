@@ -14,11 +14,14 @@ let playerChoice ='';
 //Event Listeners
 playButton.addEventListener('click', game);
 rockPaperScissors.forEach(choice => {
-    choice.addEventListener('click', game);
+    choice.addEventListener('click', () => {
+        getPlayerChoice(choice);
+    })
 });
-playerChoiceDiv.addEventListener('click', e => {
-    getPlayerChoice(e);
-});
+
+// playerChoiceDiv.addEventListener('click', e => {
+//     getPlayerChoice(e);
+// });
 
 
 
@@ -44,12 +47,17 @@ function getComputerChoice() {
     }
 }
 
+function getPlayerChoice(choice) {
+    playerChoice = choice.classList.contains('rock') ? 'rock': choice.classList.contains('paper') ? 'paper': choice.classList.contains('scissors') ? 'scissors' : '';
+    return playerChoice;
+}
+
 
 
 
 function playRound(playerSelection, computerSelection){
-    playerChoice = getComputerChoice()
-    // console.log(playerChoice)
+    getPlayerChoice();
+    console.log(playerChoice)
 }
 
 // let playerSelection = getPlayerChoice();
